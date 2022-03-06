@@ -8,7 +8,7 @@ import express from "express";
 import mongoose from "mongoose";
 
 mongoose
-  .connect(`${DBURL}`, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(`${DBURL}`)
   .then(() => {
     console.log(`Connected to DB ${DBURL}`);
   });
