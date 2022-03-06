@@ -91,6 +91,7 @@ docker-compose down
 .
 ├── .build           # Project (TypeScript) build directory
 └── src              # Source files
+    ├── constants    # Constant values
     ├── models       # Database models
     ├── routes       # API endpoints
     └── scripts      # Project scripts
@@ -166,8 +167,11 @@ This section includes the issues, changes & improvements I've made, with the tho
     > for this purpose, I used `imports` property in `package.json` to avoid using unnecessary third-party application,
     > which improves both the startup time and security, due to the fact that `Node.js` will only apply these path aliases to the current package,
     > meaning no installed dependency can use these path aliases (which could cause security issues as well)
-  - Added `index.ts` under the `src/models` directory to provide easier & cleaner access to all database models
+  - Added the `src/models/index.ts` file to provide easier & cleaner access to all database models
     throughout the entire project.
+  - Added the `src/constants` directory to move all constant values there instead of being scattered all over the project.
+    > This ensures that the project is using the same consistent values everywhere.
+    Also In case of need to change the said values, it just needs to be updated in one places only.
 
 <!-- Footnotes -->
 

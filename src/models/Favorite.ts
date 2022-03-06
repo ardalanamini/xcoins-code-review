@@ -1,3 +1,4 @@
+import { COLLECTION, MODEL, TIMESTAMPS, TimestampsI } from "#src/constants/index.js";
 import { Document, model, Model, Schema } from "mongoose";
 
 const schema = new Schema<FavoriteSchemaI>(
@@ -9,15 +10,16 @@ const schema = new Schema<FavoriteSchemaI>(
     favorite3: String,
   },
   {
-    timestamps: true,
+    collection: COLLECTION.FAVORITE,
+    timestamps: TIMESTAMPS,
   },
 );
 
-export const Favorite = model<FavoriteSchemaI, FavoriteModelI>("Favorite", schema);
+export const Favorite = model<FavoriteSchemaI, FavoriteModelI>(MODEL.FAVORITE, schema);
 
 /* ------------------------- Interfaces ------------------------- */
 
-export interface FavoriteI {
+export interface FavoriteI extends TimestampsI {
   profile_id?: string;
   name?: string;
   favorite1?: string;

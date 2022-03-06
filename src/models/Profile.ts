@@ -1,15 +1,21 @@
+import { COLLECTION, MODEL } from "#src/constants/index.js";
 import { Document, model, Model, Schema } from "mongoose";
 
-const schema = new Schema<ProfileSchemaI>({
-  name: String,
-  nickname: String,
-  email: String,
-  capital: Number,
-  divisa: String,
-  prefered_cryptocurrency: String,
-});
+const schema = new Schema<ProfileSchemaI>(
+  {
+    name: String,
+    nickname: String,
+    email: String,
+    capital: Number,
+    divisa: String,
+    prefered_cryptocurrency: String,
+  },
+  {
+    collection: COLLECTION.PROFILE,
+  },
+);
 
-export const Profile = model<ProfileSchemaI, ProfileModelI>("Profile", schema);
+export const Profile = model<ProfileSchemaI, ProfileModelI>(MODEL.PROFILE, schema);
 
 /* ------------------------- Interfaces ------------------------- */
 

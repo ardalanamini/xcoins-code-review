@@ -1,3 +1,4 @@
+import { COLLECTION, MODEL, TIMESTAMPS, TimestampsI } from "#src/constants/index.js";
 import { Document, model, Model, Schema, Types } from "mongoose";
 
 const schema = new Schema<SimulatorSchemaI>(
@@ -10,15 +11,16 @@ const schema = new Schema<SimulatorSchemaI>(
     quantity: Number,
   },
   {
-    timestamps: true,
+    collection: COLLECTION.SIMULATOR,
+    timestamps: TIMESTAMPS,
   },
 );
 
-export const Simulator = model<SimulatorSchemaI, SimulatorModelI>("Simulator", schema);
+export const Simulator = model<SimulatorSchemaI, SimulatorModelI>(MODEL.SIMULATOR, schema);
 
 /* ------------------------- Interfaces ------------------------- */
 
-export interface SimulatorI {
+export interface SimulatorI extends TimestampsI {
   profile_id?: Types.ObjectId;
   dateRecorded?: Date;
   cryptocurrency?: string;
