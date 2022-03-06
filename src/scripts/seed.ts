@@ -1,9 +1,8 @@
-import mongoose from "mongoose";
-import _ from "lodash";
+import { DBURL } from "#src/config.js";
+import { Favorite } from "#src/models/Favorite.js";
 import { Profile } from "#src/models/Profile.js";
 import { Simulator } from "#src/models/Simulator.js";
-import { Favorite } from "#src/models/Favorite.js";
-import { DBURL } from "#src/config.js";
+import mongoose from "mongoose";
 
 (async () => {
 
@@ -22,7 +21,7 @@ import { DBURL } from "#src/config.js";
   await profile.save();
 
   const query = { _id: "6093abb3dfd9da1deeae56f2" };
-  const idProfile = await Profile.findOne(query).then((e) => {
+  const idProfile = await Profile.findOne(query).then((e: any) => {
     return e?._id;
   });
 

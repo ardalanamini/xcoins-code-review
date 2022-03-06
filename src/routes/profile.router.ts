@@ -1,5 +1,5 @@
-import express from "express";
 import { Profile } from "#src/models/Profile.js";
+import express from "express";
 
 export var router = express.Router();
 
