@@ -23,7 +23,9 @@
     "seed": "ts-node-dev src/scripts/seed.ts",
     "start": "node .build/api.js",
     "build": "tsc",
-    "build:watch": "npm run build -- --watch"
+    "build:watch": "npm run build -- --watch",
+    "lint": "eslint src",
+    "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
     "body-parser": "1.19.2",

@@ -39,6 +39,8 @@ This section includes the issues, changes & improvements I've made, with the tho
   - Not using exact versions for dependencies.
     > This issue has somewhat similar effects as the `package-lock.json` issue,
     > as `^version` will allow any semver compatible version to be installed.
+- Missing `eslint` config.
+  > The `eslint` config allows to enforce the desired code style among all the contributors.
 - Issues in the `src` directory:
   - Unused imports. (e.g. unused `lodash` import in the `src/scripts/seed.ts`)
 
