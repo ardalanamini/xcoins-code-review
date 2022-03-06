@@ -13,7 +13,7 @@ const schema = new Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 export const Simulator = mongoose.model("Simulator", schema);

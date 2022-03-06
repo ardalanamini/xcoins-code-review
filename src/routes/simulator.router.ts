@@ -2,13 +2,13 @@ import { Simulator } from "#src/models/Simulator.js";
 import cors from "cors";
 import express from "express";
 
-var app = express();
+const app = express();
 app.use(cors());
 
-export var router = express.Router();
+export const router = express.Router();
 
 router.get("/api/simulator", async (req, res) => {
-  var simulator = await Simulator.find().lean();
+  const simulator = await Simulator.find().lean();
   console.log(simulator);
   res.json({ simulator });
 });
@@ -16,20 +16,20 @@ router.get("/api/simulator", async (req, res) => {
 router.get("/api/simulator/:profile_id", async (req, res) => {
   console.log("========== ");
   let query = {};
-  var { profile_id } = req.params;
+  const { profile_id } = req.params;
   console.log({ profile_id });
   query = { profile_id };
-  var data = await Simulator.find(query);
+  const data = await Simulator.find(query);
   res.json(data);
 });
 
 router.post("/api/simulator/:profile_id", async (req, res) => {
-  var { profile_id } = req.params;
-  var newData = {
+  const { profile_id } = req.params;
+  const newData = {
     ...req.body,
     profile_id,
   };
   console.log(newData);
-  var simulator = await Simulator.create(newData);
+  const simulator = await Simulator.create(newData);
   res.json(simulator);
 });

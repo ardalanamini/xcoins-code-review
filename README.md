@@ -43,6 +43,9 @@ This section includes the issues, changes & improvements I've made, with the tho
   > The `eslint` config allows to enforce the desired code style among all the contributors.
 - Issues in the `src` directory:
   - Unused imports. (e.g. unused `lodash` import in the `src/scripts/seed.ts`)
+  - Using `var` to define variables.
+    > This way the variable would be defined/redefined globally which could cause problems.
+    > Instead of `var`, it's best to use `let` or `const`. 
 
 ### Improvements
 

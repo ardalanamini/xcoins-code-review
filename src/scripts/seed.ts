@@ -9,11 +9,11 @@ import mongoose from "mongoose";
   mongoose.connect(DBURL);
 
   const profile = new Profile({
-    name: `String`,
-    email: `String`,
-    capital: `123`,
-    divisa: `String`,
-    prefered_cryptocurrency: `String`,
+    name: "String",
+    email: "String",
+    capital: "123",
+    divisa: "String",
+    prefered_cryptocurrency: "String",
   });
   await profile.save();
 
@@ -24,22 +24,22 @@ import mongoose from "mongoose";
 
   const simulator = new Simulator({
     profile_id: idProfile,
-    name: `String`,
-    start_date: `01/05/2021`,
-    check_date: `01/05/2021`,
-    cryptocurrency: `String`,
-    divisa: `String`,
-    Crypto_price_start: `123`,
-    Crypto_price_check: `123`,
+    name: "String",
+    start_date: "01/05/2021",
+    check_date: "01/05/2021",
+    cryptocurrency: "String",
+    divisa: "String",
+    Crypto_price_start: "123",
+    Crypto_price_check: "123",
   });
   await simulator.save();
 
   const favorite = new Favorite({
     profile_id: idProfile,
-    name: `String`,
-    favorite1: `String`,
-    favorite2: `String`,
-    favorite3: `String`,
+    name: "String",
+    favorite1: "String",
+    favorite2: "String",
+    favorite3: "String",
   });
   await favorite.save();
 
