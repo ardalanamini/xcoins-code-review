@@ -171,7 +171,8 @@ This section includes the issues, changes & improvements I've made, with the tho
     throughout the entire project.
   - Added the `src/constants` directory to move all constant values there instead of being scattered all over the project.
     > This ensures that the project is using the same consistent values everywhere.
-    Also In case of need to change the said values, it just needs to be updated in one places only.
+    > `MODEL` & `COLLECTION` constants are also added, due to the fact that they can be useful in scenarios such as `$lookup` aggregation stages.
+    > Also In case of need to change the said values, it just needs to be updated in one places only.
 
 <!-- Footnotes -->
 
