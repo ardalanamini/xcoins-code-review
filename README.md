@@ -14,6 +14,8 @@ This section includes the issues, changes & improvements I've made, with the tho
 
 ### Issues
 
+- Missing `.gitignore` file.
+  > Could cause unintended files to be pushed to the `git` server accidentally.
 - Issues related to `package.json`:
   - Missing `package-lock.json` file.
     > Without the `package-lock.json` file, we can't keep track of the installed dependencies,
@@ -25,6 +27,7 @@ This section includes the issues, changes & improvements I've made, with the tho
   - `devDependencies` being wrongly included in `dependencies`:
     > This will result to unnecessary packages being installed in the production server.
     > This can increase production project size (e.g. Docker image).
+  - `main` property pointing to a non-existing file.
 - Issues in the `src` directory:
   - Unused imports. (e.g. unused `lodash` import in the `src/scripts/seed.ts`)
 
@@ -32,6 +35,7 @@ This section includes the issues, changes & improvements I've made, with the tho
 
 - Improvements related to `TypeScript`:
   - Changed `target` from `es5` to `esnext` to avoid polyfill overhead & possibly improve performance.
+  - Changed `outDir` from `dist` to `.build` as it's not supposed to be manually modified. (personal preference)
   - Enabled `incremental` to improve build times.
   - Enabled `removeComments` to avoid emitting comments unnecessarily & improve production size (Very small improvement, but still an improvement 😁).
   - Enabled `inlineSources` to improve source mapping for usage in services such as `Sentry`.
