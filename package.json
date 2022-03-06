@@ -2,8 +2,14 @@
   "name": "api",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "",
-  "author": "",
+  "author": "Ardalan Amini <ardalanamini22@gmail.com> (https://ardalanamini.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ardalanamini/xcoins-code-review.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ardalanamini/xcoins-code-review/issues"
+  },
   "license": "MIT",
   "dependencies": {
     "@types/cors": "^2.8.10",
