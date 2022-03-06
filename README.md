@@ -24,11 +24,13 @@ This section includes the issues, changes & improvements I've made, with the tho
     > as it makes it difficult to debug & avoid possible incompatibility & security issues in dependencies.
   - Missing `"private": true` property:
     > This property will avoid accidental publication of the repository.
+  - `main` property pointing to a non-existing file.
   - `devDependencies` being wrongly included in `dependencies`:
     > This will result to unnecessary packages being installed in the production server.
     > This can increase production project size (e.g. Docker image).
     > Related dependencies: `@types/cors`, `@types/express`, `@types/express-handlebars`, `ts-node`, `ts-node-dev`, `typescript`
-  - `main` property pointing to a non-existing file.
+  - Unused dependencies.
+    > Related dependencies: `chart.js`, `express-handlebars`, `lodash`, `luxon`, `@types/express-handlebars`, `eslint-plugin-react`, `react`
 - Issues in the `src` directory:
   - Unused imports. (e.g. unused `lodash` import in the `src/scripts/seed.ts`)
 
