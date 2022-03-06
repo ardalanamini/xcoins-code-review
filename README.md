@@ -6,6 +6,7 @@ XCoins code review repository.
 
 - [Code Review](#code-review)
   - [Issues](#issues)
+  - [Improvements](#improvements)
 
 ## Code Review
 
@@ -21,3 +22,19 @@ This section includes the issues, changes & improvements I've made, with the tho
     > as it makes it difficult to debug & avoid possible incompatibility & security issues in dependencies.
   - Missing `"private": true` property:
     > This property will avoid accidental publication of the repository.
+  - `devDependencies` being wrongly included in `dependencies`:
+    > This will result to unnecessary packages being installed in the production server.
+    > This can increase production project size (e.g. Docker image).
+- Issues in the `src` directory:
+  - Unused imports. (e.g. unused `lodash` import in the `src/scripts/seed.ts`)
+
+### Improvements
+
+- Improvements related to `TypeScript`:
+  - Changed `target` from `es5` to `esnext` to avoid polyfill overhead & possibly improve performance.
+  - Enabled `incremental` to improve build times.
+  - Enabled `inlineSources` to improve source mapping for usage in services such as `Sentry`.
+  - Added `paths` to improve code quality and avoid long relative imports.
+    > for this purpose, I used `imports` property in `package.json` to avoid using unnecessary third-party application,
+    > which improves both the startup time and security, due to the fact that `Node.js` will only apply these path aliases to the current package,
+    > meaning no installed dependency can use these path aliases (which could cause security issues as well)
