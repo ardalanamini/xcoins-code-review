@@ -1,8 +1,6 @@
-import mongoose from "mongoose";
+import { Document, model, Model, Schema } from "mongoose";
 
-const { Schema } = mongoose;
-
-const schema = new Schema(
+const schema = new Schema<FavoriteSchemaI>(
   {
     profile_id: String,
     name: String,
@@ -15,4 +13,21 @@ const schema = new Schema(
   },
 );
 
-export const Favorite = mongoose.model("Favorite", schema);
+export const Favorite = model<FavoriteSchemaI, FavoriteModelI>("Favorite", schema);
+
+/* ------------------------- Interfaces ------------------------- */
+
+export interface FavoriteI {
+  profile_id?: string;
+  name?: string;
+  favorite1?: string;
+  favorite2?: string;
+  favorite3?: string;
+}
+
+export interface FavoriteSchemaI extends Document, FavoriteI {
+}
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface FavoriteModelI extends Model<FavoriteSchemaI> {
+}

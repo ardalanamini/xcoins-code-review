@@ -146,6 +146,8 @@ This section includes the issues, changes & improvements I've made, with the tho
   - Using `var` to define variables.
     > This way the variable would be defined/redefined globally which could cause problems.
     > Instead of `var`, it's best to use `let` or `const`.
+  - Database models weren't typed.
+    > I added the missing interfaces that can be modified easily if needed.
 
 ### Improvements
 
