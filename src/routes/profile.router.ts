@@ -1,4 +1,4 @@
-import { Profile } from "#src/models/Profile.js";
+import { Profile } from "#src/models/index.js";
 import express from "express";
 
 export const router = express.Router();

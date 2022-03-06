@@ -1,4 +1,4 @@
-import { Favorite } from "#src/models/Favorite.js";
+import { Favorite } from "#src/models/index.js";
 import express from "express";
 
 export const router = express.Router();

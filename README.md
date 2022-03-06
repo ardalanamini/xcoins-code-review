@@ -166,6 +166,8 @@ This section includes the issues, changes & improvements I've made, with the tho
     > for this purpose, I used `imports` property in `package.json` to avoid using unnecessary third-party application,
     > which improves both the startup time and security, due to the fact that `Node.js` will only apply these path aliases to the current package,
     > meaning no installed dependency can use these path aliases (which could cause security issues as well)
+  - Added `index.ts` under the `src/models` directory to provide easier & cleaner access to all database models
+    throughout the entire project.
 
 <!-- Footnotes -->
 

@@ -1,4 +1,4 @@
-import { Simulator } from "#src/models/Simulator.js";
+import { Simulator } from "#src/models/index.js";
 import cors from "cors";
 import express from "express";
 
