@@ -36,11 +36,19 @@ This section includes the issues, changes & improvements I've made, with the tho
   - Outdated dependencies.
     > Related dependencies: `body-parser`, `dotenv`, `express`, `mongoose`, `@types/cors`, `@types/express`,
     > `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser`, `eslint`, `ts-node-dev`, `typescript`
+    >
+    > Note: As of this moment, the latest `typescript` version
+    > officially supported by the `@typescript-eslint/typescript-estree` is `4.5.5`
   - Not using exact versions for dependencies.
     > This issue has somewhat similar effects as the `package-lock.json` issue,
     > as `^version` will allow any semver compatible version to be installed.
+- Missing `eslint` config.
+  > The `eslint` config allows to enforce the desired code style among all the contributors.
 - Issues in the `src` directory:
   - Unused imports. (e.g. unused `lodash` import in the `src/scripts/seed.ts`)
+  - Using `var` to define variables.
+    > This way the variable would be defined/redefined globally which could cause problems.
+    > Instead of `var`, it's best to use `let` or `const`. 
 
 ### Improvements
 

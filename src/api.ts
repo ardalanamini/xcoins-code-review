@@ -22,5 +22,5 @@ app.use(profileRouter);
 app.use(simulatorRouter);
 
 app.listen(PORT, () =>
-  console.log(`✅  Ready on port http://localhost:${PORT}`)
+  console.log(`✅  Ready on port http://localhost:${PORT}`),
 );
