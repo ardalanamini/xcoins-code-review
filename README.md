@@ -91,6 +91,7 @@ docker-compose down
 .
 ├── .build           # Project (TypeScript) build directory
 └── src              # Source files
+    ├── constants    # Constant values
     ├── models       # Database models
     ├── routes       # API endpoints
     └── scripts      # Project scripts
@@ -143,9 +144,16 @@ This section includes the issues, changes & improvements I've made, with the tho
   > The `eslint` config allows to enforce the desired code style among all the contributors.
 - Issues in the `src` directory:
   - Unused imports. (e.g. unused `lodash` import in the `src/scripts/seed.ts`)
+  - Wrong values passed to the database models to be created based on the provided database model schemas.
+    (e.g. `name`, `start_date`, `check_date`, `divisa`, `Crypto_price_start` & `Crypto_price_check` fields
+    for the `Simulator` model in the `src/scripts/seed.ts` file)
   - Using `var` to define variables.
     > This way the variable would be defined/redefined globally which could cause problems.
     > Instead of `var`, it's best to use `let` or `const`.
+  - Database models weren't typed.
+    > I added the missing interfaces that can be modified easily if needed.
+  - Database model fields were all optional & lacked the information about other required validations.
+  - Database model fields lacked consistency. (e.g. some used `snake-case` format & some `camel-case` such as `dateRecorded` in the `Simulator` model)
 
 ### Improvements
 
@@ -164,6 +172,12 @@ This section includes the issues, changes & improvements I've made, with the tho
     > for this purpose, I used `imports` property in `package.json` to avoid using unnecessary third-party application,
     > which improves both the startup time and security, due to the fact that `Node.js` will only apply these path aliases to the current package,
     > meaning no installed dependency can use these path aliases (which could cause security issues as well)
+  - Added the `src/models/index.ts` file to provide easier & cleaner access to all database models
+    throughout the entire project.
+  - Added the `src/constants` directory to move all constant values there instead of being scattered all over the project.
+    > This ensures that the project is using the same consistent values everywhere.
+    > `MODEL` & `COLLECTION` constants are also added, due to the fact that they can be useful in scenarios such as `$lookup` aggregation stages.
+    > Also In case of need to change the said values, it just needs to be updated in one places only.
 
 <!-- Footnotes -->
 

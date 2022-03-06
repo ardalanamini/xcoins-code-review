@@ -1,14 +1,54 @@
-import mongoose from "mongoose";
+import { COLLECTION, MODEL } from "#src/constants/index.js";
+import { Document, model, Model, Schema } from "mongoose";
 
-const { Schema } = mongoose;
+// TODO: information required.
+const schema = new Schema<ProfileSchemaI>(
+  {
+    email: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    nickname: {
+      type: String,
+    },
+    capital: {
+      type: Number,
+      required: true,
+      default: 0,
+      min: 0,
+    },
+    divisa: {
+      type: String,
+    },
+    prefered_cryptocurrency: {
+      type: String,
+    },
+  },
+  {
+    collection: COLLECTION.PROFILE,
+  },
+);
 
-const schema = new Schema({
-  name: String,
-  nickname: String,
-  email: String,
-  capital: Number,
-  divisa: String,
-  prefered_cryptocurrency: String,
-});
+export const Profile = model<ProfileSchemaI, ProfileModelI>(MODEL.PROFILE, schema);
 
-export const Profile = mongoose.model("Profile", schema);
+/* ------------------------- Interfaces ------------------------- */
+
+export interface ProfileI {
+  email: `${string}@${string}.${string}`;
+  name: string;
+  nickname?: string;
+  capital: number;
+  divisa?: string;
+  prefered_cryptocurrency?: string;
+}
+
+export interface ProfileSchemaI extends Document, ProfileI {
+}
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface ProfileModelI extends Model<ProfileSchemaI> {
+}
