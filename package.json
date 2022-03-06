@@ -22,7 +22,8 @@
     "dev": "ts-node-dev src/api.ts",
     "seed": "ts-node-dev src/scripts/seed.ts",
     "start": "node .build/api.js",
-    "build": "tsc"
+    "build": "tsc",
+    "build:watch": "npm run build -- --watch"
   },
   "dependencies": {
     "@types/cors": "^2.8.10",
