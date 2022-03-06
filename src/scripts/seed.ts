@@ -6,10 +6,7 @@ import mongoose from "mongoose";
 
 (async () => {
 
-  mongoose.connect(DBURL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  mongoose.connect(DBURL);
 
   const profile = new Profile({
     name: `String`,
