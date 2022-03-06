@@ -11,12 +11,15 @@
   "bugs": {
     "url": "https://github.com/ardalanamini/xcoins-code-review/issues"
   },
-  "main": "index.js",
+  "imports": {
+    "#src/*": "./.build/*"
+  },
+  "main": ".build/api.js",
   "scripts": {
     "dev": "ts-node-dev src/api.ts",
     "seed": "ts-node-dev src/scripts/seed.ts",
-    "start": "node dist/api.js",
-    "build": "tsc -b"
+    "start": "node .build/api.js",
+    "build": "tsc"
   },
   "dependencies": {
     "@types/cors": "^2.8.10",

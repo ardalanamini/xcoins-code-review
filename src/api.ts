@@ -1,11 +1,11 @@
 import express from "express";
-import { PORT, DBURL, CORS_ORIGINS } from "./config";
+import { PORT, DBURL, CORS_ORIGINS } from "#src/config.js";
 import cors from "cors";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
-import { router as favoriteRouter } from "./routes/favorite.router";
-import { router as profileRouter } from "./routes/profile.router";
-import { router as simulatorRouter } from "./routes/simulator.router";
+import { router as favoriteRouter } from "#src/routes/favorite.router.js";
+import { router as profileRouter } from "#src/routes/profile.router.js";
+import { router as simulatorRouter } from "#src/routes/simulator.router.js";
 
 mongoose
   .connect(`${DBURL}`, { useNewUrlParser: true, useUnifiedTopology: true })

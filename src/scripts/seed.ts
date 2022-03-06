@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 import _ from "lodash";
-import { Profile } from "../models/Profile";
-import { Simulator } from "../models/Simulator";
-import { Favorite } from "../models/Favorite";
-import { DBURL } from "../config";
+import { Profile } from "#src/models/Profile.js";
+import { Simulator } from "#src/models/Simulator.js";
+import { Favorite } from "#src/models/Favorite.js";
+import { DBURL } from "#src/config.js";
 
 (async () => {
 

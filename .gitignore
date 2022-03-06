@@ -116,6 +116,9 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Build
+.build/
+
 # IDE
 .idea/
 .vscode/
