@@ -1,14 +1,32 @@
 import { COLLECTION, MODEL } from "#src/constants/index.js";
 import { Document, model, Model, Schema } from "mongoose";
 
+// TODO: information required.
 const schema = new Schema<ProfileSchemaI>(
   {
-    name: String,
-    nickname: String,
-    email: String,
-    capital: Number,
-    divisa: String,
-    prefered_cryptocurrency: String,
+    email: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    nickname: {
+      type: String,
+    },
+    capital: {
+      type: Number,
+      required: true,
+      default: 0,
+      min: 0,
+    },
+    divisa: {
+      type: String,
+    },
+    prefered_cryptocurrency: {
+      type: String,
+    },
   },
   {
     collection: COLLECTION.PROFILE,
@@ -20,10 +38,10 @@ export const Profile = model<ProfileSchemaI, ProfileModelI>(MODEL.PROFILE, schem
 /* ------------------------- Interfaces ------------------------- */
 
 export interface ProfileI {
-  name?: string;
+  email: `${string}@${string}.${string}`;
+  name: string;
   nickname?: string;
-  email?: string;
-  capital?: number;
+  capital: number;
   divisa?: string;
   prefered_cryptocurrency?: string;
 }

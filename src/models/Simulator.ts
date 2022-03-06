@@ -1,14 +1,36 @@
 import { COLLECTION, MODEL, TIMESTAMPS, TimestampsI } from "#src/constants/index.js";
 import { Document, model, Model, Schema, Types } from "mongoose";
 
+// TODO: information required.
 const schema = new Schema<SimulatorSchemaI>(
   {
-    profile_id: Schema.Types.ObjectId,
-    dateRecorded: Date,
-    cryptocurrency: String,
-    euros: Number,
-    price: Number,
-    quantity: Number,
+    profile_id: {
+      type: Schema.Types.ObjectId,
+      required: true,
+    },
+    recorded_at: {
+      type: Date,
+      required: true,
+    },
+    cryptocurrency: {
+      type: String,
+      required: true,
+    },
+    euros: {
+      type: Number,
+      required: true,
+      min: 0,
+    },
+    price: {
+      type: Number,
+      required: true,
+      min: 0,
+    },
+    quantity: {
+      type: Number,
+      required: true,
+      min: 0,
+    },
   },
   {
     collection: COLLECTION.SIMULATOR,
@@ -21,12 +43,12 @@ export const Simulator = model<SimulatorSchemaI, SimulatorModelI>(MODEL.SIMULATO
 /* ------------------------- Interfaces ------------------------- */
 
 export interface SimulatorI extends TimestampsI {
-  profile_id?: Types.ObjectId;
-  dateRecorded?: Date;
-  cryptocurrency?: string;
-  euros?: number;
-  price?: number;
-  quantity?: number;
+  profile_id: Types.ObjectId;
+  recorded_at: Date;
+  cryptocurrency: string;
+  euros: number;
+  price: number;
+  quantity: number;
 }
 
 export interface SimulatorSchemaI extends Document, SimulatorI {
