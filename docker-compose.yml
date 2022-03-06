@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+    image: xcoins-api
+    container_name: xcoins-api
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - PORT=3000
+      - DBURL=mongodb://database:27017/api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+
+  database:
+    image: mongo:5.0.6
+    container_name: xcoins-database
+    restart: unless-stopped
+    command: --bind_ip_all
+    environment:
+      - MONGO_INITDB_DATABASE=api
+    ports:
+      - "27017:27017"
+    volumes:
+      - database-data:/data/db
+
+volumes:
+  database-data:

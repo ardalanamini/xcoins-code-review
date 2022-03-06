@@ -9,6 +9,7 @@ XCoins code review repository.
   - [Build](#build)
   - [Code Style](#code-style)
   - [Start](#start)
+  - [Docker](#docker)
 - [Directory Layout](#directory-layout)
 - [Versioning](#versioning)
 - [Code Review](#code-review)
@@ -68,6 +69,20 @@ Watch for changes and restart automatically.
 
 ```shell
 npm run dev
+```
+
+### Docker
+
+Start the _Docker_[^DOCKER_FOOTNOTE] compose services:
+
+```shell
+docker-compose up -d --build --remove-orphans
+```
+
+Stop the docker compose services:
+
+```shell
+docker-compose down
 ```
 
 ## Directory Layout
@@ -134,6 +149,10 @@ This section includes the issues, changes & improvements I've made, with the tho
 
 ### Improvements
 
+- Added `Dockerfile` & `docker-compose.yml`.
+  > The `docker-compose.yml` will be used for development environment,
+  > so that the developers won't have to set up the dependant services.
+  > The `Dockerfile` will be used for production deployment. (e.g. Kubernetes)
 - Improvements related to `TypeScript`:
   - Changed `target` from `es5` to `esnext` to avoid polyfill overhead & possibly improve performance.
   - Changed `outDir` from `dist` to `.build` as it's not supposed to be manually modified. (personal preference)
@@ -155,5 +174,7 @@ This section includes the issues, changes & improvements I've made, with the tho
 [^ESLINT_FOOTNOTE]: [ESLint](https://eslint.org)
 
 [^MONGODB_FOOTNOTE]: [MongoDB](https://www.mongodb.com)
+
+[^DOCKER_FOOTNOTE]: [Docker](https://www.docker.com)
 
 [^SEMVER_FOOTNOTE]: [SemVer](http://semver.org)
