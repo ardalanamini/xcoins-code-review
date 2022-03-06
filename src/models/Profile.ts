@@ -1,5 +1,5 @@
 import { COLLECTION, MODEL } from "#src/constants/index.js";
-import { Document, model, Model, Schema } from "mongoose";
+import { Document, model, Model, Schema, Types } from "mongoose";
 
 // TODO: information required.
 const schema = new Schema<ProfileSchemaI>(
@@ -16,9 +16,9 @@ const schema = new Schema<ProfileSchemaI>(
       type: String,
     },
     capital: {
-      type: Number,
+      type: Schema.Types.Decimal128,
       required: true,
-      default: 0,
+      default: Types.Decimal128.fromString("0"),
       min: 0,
     },
     divisa: {
@@ -41,7 +41,7 @@ export interface ProfileI {
   email: `${string}@${string}.${string}`;
   name: string;
   nickname?: string;
-  capital: number;
+  capital: Types.Decimal128;
   divisa?: string;
   prefered_cryptocurrency?: string;
 }

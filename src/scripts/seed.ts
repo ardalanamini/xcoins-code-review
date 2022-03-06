@@ -9,7 +9,7 @@ import mongoose from "mongoose";
   const profile = new Profile({
     name: "String",
     email: "String",
-    capital: "123",
+    capital: mongoose.Types.Decimal128.fromString("123"),
     divisa: "String",
     prefered_cryptocurrency: "String",
   });

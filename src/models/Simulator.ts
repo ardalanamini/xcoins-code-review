@@ -17,17 +17,17 @@ const schema = new Schema<SimulatorSchemaI>(
       required: true,
     },
     euros: {
-      type: Number,
+      type: Schema.Types.Decimal128,
       required: true,
       min: 0,
     },
     price: {
-      type: Number,
+      type: Schema.Types.Decimal128,
       required: true,
       min: 0,
     },
     quantity: {
-      type: Number,
+      type: Schema.Types.Decimal128,
       required: true,
       min: 0,
     },
@@ -46,9 +46,9 @@ export interface SimulatorI extends TimestampsI {
   profile_id: Types.ObjectId;
   recorded_at: Date;
   cryptocurrency: string;
-  euros: number;
-  price: number;
-  quantity: number;
+  euros: Types.Decimal128;
+  price: Types.Decimal128;
+  quantity: Types.Decimal128;
 }
 
 export interface SimulatorSchemaI extends Document, SimulatorI {

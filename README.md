@@ -154,6 +154,9 @@ This section includes the issues, changes & improvements I've made, with the tho
     > I added the missing interfaces that can be modified easily if needed.
   - Database model fields were all optional & lacked the information about other required validations.
   - Database model fields lacked consistency. (e.g. some used `snake-case` format & some `camel-case` such as `dateRecorded` in the `Simulator` model)
+  - Monetary values were stored as `Number` in the database.
+    > This can cause problems as it doesn't have precision safety required to do the math.
+    > I used `Decimal128` as suggested in [this](https://docs.mongodb.com/manual/tutorial/model-monetary-data) official `MongoDB` document.
 
 ### Improvements
 
