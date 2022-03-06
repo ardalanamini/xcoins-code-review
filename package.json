@@ -11,12 +11,19 @@
   "bugs": {
     "url": "https://github.com/ardalanamini/xcoins-code-review/issues"
   },
-  "main": "index.js",
+  "engines": {
+    "node": ">=16.14.0"
+  },
+  "imports": {
+    "#src/*": "./.build/*"
+  },
+  "main": ".build/api.js",
   "scripts": {
     "dev": "ts-node-dev src/api.ts",
     "seed": "ts-node-dev src/scripts/seed.ts",
-    "start": "node dist/api.js",
-    "build": "tsc -b"
+    "start": "node .build/api.js",
+    "build": "tsc",
+    "build:watch": "npm run build -- --watch"
   },
   "dependencies": {
     "@types/cors": "^2.8.10",
@@ -28,18 +35,17 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.0",
-    "lodash": "^4.17.21",
     "luxon": "^1.26.0",
     "mongoose": "^5.12.7",
     "nodemon": "^2.0.7",
     "ts-node": "^9.1.1",
-    "ts-node-dev": "^1.1.6",
-    "typescript": "^4.2.4"
+    "ts-node-dev": "^1.1.6"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "^7.25.0",
-    "eslint-plugin-react": "^7.23.2"
+    "eslint-plugin-react": "^7.23.2",
+    "typescript": "^4.2.4"
   }
 }
