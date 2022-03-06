@@ -4,9 +4,87 @@ XCoins code review repository.
 
 ## Table of Contents
 
+- [Prerequisites](#prerequisites)
+- [Usage](#usage)
+  - [Build](#build)
+  - [Code Style](#code-style)
+  - [Start](#start)
+- [Directory Layout](#directory-layout)
+- [Versioning](#versioning)
 - [Code Review](#code-review)
   - [Issues](#issues)
   - [Improvements](#improvements)
+
+## Prerequisites
+
+- _Node.js_[^NODE_JS_FOOTNOTE] (`v16.14.0` or higher)
+- _MongoDB_[^MONGODB_FOOTNOTE] (`v5`)
+
+## Usage
+
+First install the dependencies:
+
+```shell
+npm i
+```
+
+### Build
+
+Build the project. (Using _TypeScript_[^TYPESCRIPT_FOOTNOTE])
+
+```shell
+npm run build
+```
+
+Watch for changes and rebuild automatically.
+
+```shell
+npm run build:watch
+```
+
+### Code Style
+
+Check for code style issues in the project. (Using _ESLint_[^ESLINT_FOOTNOTE])
+
+```shell
+npm run lint
+```
+
+Fix code style issues in the project.
+
+```shell
+npm run lint:fix
+```
+
+### Start
+
+Start the API.
+
+```shell
+npm start
+```
+
+Watch for changes and restart automatically.
+
+```shell
+npm run dev
+```
+
+## Directory Layout
+
+```
+.
+├── .build           # Project (TypeScript) build directory
+└── src              # Source files
+    ├── models       # Database models
+    ├── routes       # API endpoints
+    └── scripts      # Project scripts
+```
+
+## Versioning
+
+This project uses _SemVer_[^SEMVER_FOOTNOTE] for versioning. For the versions & changelogs available, see the releases on this
+repository.
 
 ## Code Review
 
@@ -14,6 +92,10 @@ This section includes the issues, changes & improvements I've made, with the tho
 
 ### Issues
 
+- Missing documents.
+  - No usage document is provided in the `README.md` file.
+  - No comments or documents are provided for the project. (e.g. `jsdoc`, `tsdoc`, `typedoc`)
+  - No API documents are provided for the project. (e.g. `swagger`)
 - Missing `.gitignore` file.
   > Could cause unintended files to be pushed to the `git` server accidentally.
 - Issues related to `package.json`:
@@ -48,7 +130,7 @@ This section includes the issues, changes & improvements I've made, with the tho
   - Unused imports. (e.g. unused `lodash` import in the `src/scripts/seed.ts`)
   - Using `var` to define variables.
     > This way the variable would be defined/redefined globally which could cause problems.
-    > Instead of `var`, it's best to use `let` or `const`. 
+    > Instead of `var`, it's best to use `let` or `const`.
 
 ### Improvements
 
@@ -56,9 +138,22 @@ This section includes the issues, changes & improvements I've made, with the tho
   - Changed `target` from `es5` to `esnext` to avoid polyfill overhead & possibly improve performance.
   - Changed `outDir` from `dist` to `.build` as it's not supposed to be manually modified. (personal preference)
   - Enabled `incremental` to improve build times.
-  - Enabled `removeComments` to avoid emitting comments unnecessarily & improve production size (Very small improvement, but still an improvement 😁).
+  - Enabled `removeComments` to avoid emitting comments unnecessarily & improve production size (Very small improvement,
+    but still an improvement 😁).
   - Enabled `inlineSources` to improve source mapping for usage in services such as `Sentry`.
   - Added `paths` to improve code quality and avoid long relative imports.
     > for this purpose, I used `imports` property in `package.json` to avoid using unnecessary third-party application,
     > which improves both the startup time and security, due to the fact that `Node.js` will only apply these path aliases to the current package,
     > meaning no installed dependency can use these path aliases (which could cause security issues as well)
+
+<!-- Footnotes -->
+
+[^NODE_JS_FOOTNOTE]: [Node.js](https://nodejs.org/en)
+
+[^TYPESCRIPT_FOOTNOTE]: [TypeScript](https://www.typescriptlang.org)
+
+[^ESLINT_FOOTNOTE]: [ESLint](https://eslint.org)
+
+[^MONGODB_FOOTNOTE]: [MongoDB](https://www.mongodb.com)
+
+[^SEMVER_FOOTNOTE]: [SemVer](http://semver.org)
