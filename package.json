@@ -11,6 +11,9 @@
   "bugs": {
     "url": "https://github.com/ardalanamini/xcoins-code-review/issues"
   },
+  "engines": {
+    "node": ">=16.14.0"
+  },
   "imports": {
     "#src/*": "./.build/*"
   },
