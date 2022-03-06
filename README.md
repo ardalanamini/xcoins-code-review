@@ -33,6 +33,7 @@ This section includes the issues, changes & improvements I've made, with the tho
 - Improvements related to `TypeScript`:
   - Changed `target` from `es5` to `esnext` to avoid polyfill overhead & possibly improve performance.
   - Enabled `incremental` to improve build times.
+  - Enabled `removeComments` to avoid emitting comments unnecessarily & improve production size (Very small improvement, but still an improvement 😁).
   - Enabled `inlineSources` to improve source mapping for usage in services such as `Sentry`.
   - Added `paths` to improve code quality and avoid long relative imports.
     > for this purpose, I used `imports` property in `package.json` to avoid using unnecessary third-party application,
