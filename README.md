@@ -28,9 +28,14 @@ This section includes the issues, changes & improvements I've made, with the tho
   - `devDependencies` being wrongly included in `dependencies`:
     > This will result to unnecessary packages being installed in the production server.
     > This can increase production project size (e.g. Docker image).
-    > Related dependencies: `@types/cors`, `@types/express`, `@types/express-handlebars`, `ts-node`, `ts-node-dev`, `typescript`
+    > Related dependencies: `@types/cors`, `@types/express`, `@types/express-handlebars`, `ts-node`, `ts-node-dev`,
+    > `typescript`
   - Unused dependencies.
-    > Related dependencies: `chart.js`, `express-handlebars`, `lodash`, `luxon`, `@types/express-handlebars`, `eslint-plugin-react`, `ts-node`
+    > Related dependencies: `chart.js`, `express-handlebars`, `lodash`, `luxon`, `@types/express-handlebars`,
+    > `eslint-plugin-react`, `ts-node`
+  - Outdated dependencies.
+    > Related dependencies: `body-parser`, `dotenv`, `express`, `mongoose`, `@types/cors`, `@types/express`,
+    > `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser`, `eslint`, `ts-node-dev`, `typescript`
 - Issues in the `src` directory:
   - Unused imports. (e.g. unused `lodash` import in the `src/scripts/seed.ts`)
 
