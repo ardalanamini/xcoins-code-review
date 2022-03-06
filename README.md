@@ -30,7 +30,7 @@ This section includes the issues, changes & improvements I've made, with the tho
     > This can increase production project size (e.g. Docker image).
     > Related dependencies: `@types/cors`, `@types/express`, `@types/express-handlebars`, `ts-node`, `ts-node-dev`, `typescript`
   - Unused dependencies.
-    > Related dependencies: `chart.js`, `express-handlebars`, `lodash`, `luxon`, `@types/express-handlebars`, `eslint-plugin-react`, `react`
+    > Related dependencies: `chart.js`, `express-handlebars`, `lodash`, `luxon`, `@types/express-handlebars`, `eslint-plugin-react`, `ts-node`
 - Issues in the `src` directory:
   - Unused imports. (e.g. unused `lodash` import in the `src/scripts/seed.ts`)
 
