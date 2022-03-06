@@ -36,6 +36,9 @@ This section includes the issues, changes & improvements I've made, with the tho
   - Outdated dependencies.
     > Related dependencies: `body-parser`, `dotenv`, `express`, `mongoose`, `@types/cors`, `@types/express`,
     > `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser`, `eslint`, `ts-node-dev`, `typescript`
+  - Not using exact versions for dependencies.
+    > This issue has somewhat similar effects as the `package-lock.json` issue,
+    > as `^version` will allow any semver compatible version to be installed.
 - Issues in the `src` directory:
   - Unused imports. (e.g. unused `lodash` import in the `src/scripts/seed.ts`)
 
