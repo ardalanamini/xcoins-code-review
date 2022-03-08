@@ -179,8 +179,10 @@ npm run docs:api
 .
 ├── .build           # Project (TypeScript) build directory
 ├── __tests__        # Test files
-│   ├── controllers  # Express.js controller tests
-│   └── jest         # Test utilities
+│   ├── controllers  # API controller integration tests
+│   ├── jest         # Test utilities
+│   ├── lib          # Library unit tests
+│   └── utils        # Utility unit tests
 ├── docs             # Static documents
 │   ├── api          # API documents
 │   └── code         # Code documents
@@ -193,6 +195,8 @@ npm run docs:api
     ├── scripts      # Project scripts
     └── utils        # Project utilities
 ```
+
+> Note: `__mocks__` directories are used by `Jest` to mock certain modules.
 
 ## Versioning
 
