@@ -1,6 +1,6 @@
-import { Handler } from "express";
+import { RequestHandler } from "express";
 
-export function wrapRequestHandlers(handlers: Handler[]): Handler[] {
+export function wrapRequestHandlers(handlers: RequestHandlerT[]): RequestHandlerT[] {
   return handlers.map(handler => (req, res, next) => {
     try {
       const result: unknown = handler(req, res, next);
@@ -11,3 +11,6 @@ export function wrapRequestHandlers(handlers: Handler[]): Handler[] {
     }
   });
 }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type RequestHandlerT = RequestHandler<any, any, any, any>;

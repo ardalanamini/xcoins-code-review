@@ -238,6 +238,7 @@ This section includes the issues, changes & improvements I've made, with the tho
   - Added the `wrapController` utility.
     > `express` doesn't catch async errors properly, so I added this utility to wrap the controllers before passing them
     > to the `Router` instance.
+  - Added pagination to the endpoints that were listing records.
 
 <!-- Footnotes -->
 
