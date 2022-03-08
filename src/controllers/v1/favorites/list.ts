@@ -34,6 +34,7 @@ export const listFavoritesV1 = [
 
     if (total_count > skip) {
       favorites = await Favorite.find(query)
+        .sort("-created_at")
         .skip(skip)
         .limit(limit)
         .lean();

@@ -34,6 +34,7 @@ export const listSimulatorsV1 = [
 
     if (total_count > skip) {
       simulators = await Simulator.find(query)
+        .sort("-created_at")
         .skip(skip)
         .limit(limit)
         .lean();

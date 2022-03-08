@@ -30,7 +30,7 @@ export const postSimulatorV1: RequestHandler[] = [
     const { profile_id } = req.params;
 
     const simulator = await Simulator.create({
-      ...req.body,
+      ...req.body.simulator,
       profile_id,
     });
 
