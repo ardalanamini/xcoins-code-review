@@ -30,3 +30,28 @@ it("should respond the already existing profile", async () => {
     .expect(200)
     .expect({ profile: serialize(profile) });
 });
+
+it("should fail creating a new profile", async () => {
+  const profile = {
+    email: "example@example.com",
+    name: "John Due",
+    nickname: 1,
+  } as const;
+
+  await http()
+    .post("/v1/profiles")
+    .send({ profile })
+    .expect(400)
+    .expect({
+      error: "Bad Request",
+      message: "Validation failed",
+      statusCode: 400,
+      validation: {
+        body: {
+          keys: ["profile.nickname"],
+          message: "\"profile.nickname\" must be a string",
+          source: "body",
+        },
+      },
+    });
+});
