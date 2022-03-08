@@ -157,6 +157,9 @@ npm run docs:api
 ```
 .
 ├── .build           # Project (TypeScript) build directory
+├── docs             # Static documents
+│   ├── api          # API documents
+│   └── code         # Code documents
 └── src              # Source files
     ├── constants    # Constant values
     ├── controllers  # API controllers
