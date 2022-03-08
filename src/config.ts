@@ -1,5 +1,5 @@
 import { ENV } from "#src/constants/index.js";
-import dotenv from "dotenv";
+import { config } from "dotenv";
 
 function check(variable: string, defaultValue?: string) {
   const value = process.env[variable] || defaultValue;
@@ -9,7 +9,7 @@ function check(variable: string, defaultValue?: string) {
   throw new Error(`The environment variable "${variable}" is missing!`);
 }
 
-dotenv.config();
+config();
 
 export const NODE_ENV = process.env.NODE_ENV = check("NODE_ENV", ENV.DEVELOPMENT);
 
