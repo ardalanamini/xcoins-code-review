@@ -20,8 +20,8 @@
   "main": ".build/index.js",
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
-    "seed": "ts-node-dev src/scripts/seed.ts",
     "start": "node .build/index.js",
+    "seed": "ts-node scripts/seed.ts",
     "build": "tsc",
     "build:watch": "npm run build -- --watch",
     "lint": "eslint src",
@@ -43,6 +43,7 @@
     "@typescript-eslint/eslint-plugin": "5.14.0",
     "@typescript-eslint/parser": "5.14.0",
     "eslint": "8.10.0",
+    "ts-node": "10.7.0",
     "ts-node-dev": "1.1.8",
     "typescript": "4.6.2"
   }

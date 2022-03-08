@@ -206,6 +206,9 @@ This section includes the issues, changes & improvements I've made, with the tho
   - Inconsistent API response format.
     > Some controllers directly send the database record(s) as the response, some send them wrapped inside an object.
   - No request validation was in place for any of the controllers.
+  - The `seed` script was creating a database records using different fields than the fields in the models. (
+    e.g. `Simulator` record)
+  - The `seed` script was not awaiting database connection/disconnection.
 
 ### Improvements
 
