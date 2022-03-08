@@ -1,0 +1,7 @@
+{
+  "entryPoints": ["src/"],
+  "exclude": ["**/__mocks__/*.ts"],
+  "entryPointStrategy": "Expand",
+  "out": "docs/code",
+  "includeVersion": true
+}

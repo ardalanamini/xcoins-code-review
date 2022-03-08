@@ -119,6 +119,9 @@ dist
 # Build
 .build/
 
+# Documents
+docs/code/
+
 # IDE
 .idea/
 .vscode/

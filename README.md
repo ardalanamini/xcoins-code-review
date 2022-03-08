@@ -15,6 +15,8 @@ XCoins code review repository.
     - [Sentry](#sentry-config)
   - [Start](#start)
   - [Docker](#docker)
+  - [Documents](#documents)
+    - [Code](#code-documents)
 - [Directory Layout](#directory-layout)
 - [Versioning](#versioning)
 - [Code Review](#code-review)
@@ -122,6 +124,18 @@ Stop the docker compose services:
 ```shell
 docker-compose down
 ```
+
+### Documents
+
+#### Code Documents
+
+Generate the Code documents to be served statically. (Using _TypeDoc_[^TYPEDOC_FOOTNOTE])
+
+```shell
+npm run docs:code
+```
+
+After running this command, open `docs/code/index.html` in your preferred browser.
 
 ## Directory Layout
 
@@ -262,5 +276,7 @@ This section includes the issues, changes & improvements I've made, with the tho
 [^MONGODB_FOOTNOTE]: [MongoDB](https://www.mongodb.com)
 
 [^DOCKER_FOOTNOTE]: [Docker](https://www.docker.com)
+
+[^TYPEDOC_FOOTNOTE]: [TypeDoc](https://typedoc.org)
 
 [^SEMVER_FOOTNOTE]: [SemVer](http://semver.org)
