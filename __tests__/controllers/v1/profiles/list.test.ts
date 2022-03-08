@@ -1,6 +1,5 @@
 import { factory, http, serialize } from "#test";
 import { orderBy } from "lodash";
-import { Types } from "mongoose";
 
 it("should respond with empty profiles", async () => {
   await http()

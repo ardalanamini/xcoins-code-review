@@ -7,6 +7,7 @@ it("should not catch any errors (sync)", (done) => {
     next();
   }]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   wrapped(null as any, null as any, (error) => {
     expect(error).toBeUndefined();
 
@@ -23,6 +24,7 @@ it("should catch error (sync)", (done) => {
     throw ERROR;
   }]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   wrapped(null as any, null as any, (error) => {
     expect(error).toEqual(ERROR);
 
@@ -37,6 +39,7 @@ it("should not catch any errors (async)", (done) => {
     next();
   }]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   wrapped(null as any, null as any, (error) => {
     expect(error).toBeUndefined();
 
@@ -53,6 +56,7 @@ it("should catch error (async)", (done) => {
     throw ERROR;
   }]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   wrapped(null as any, null as any, (error) => {
     expect(error).toEqual(ERROR);
 
