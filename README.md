@@ -157,6 +157,8 @@ This section includes the issues, changes & improvements I've made, with the tho
   - Monetary values were stored as `Number` in the database.
     > This can cause problems as it doesn't have precision safety required to do the math.
     > I used `Decimal128` as suggested in [this](https://docs.mongodb.com/manual/tutorial/model-monetary-data) official `MongoDB` document.
+    > For mathematical calculations in the project we can use [bignumber.js](https://www.npmjs.com/package/bignumber.js),
+    > to handle the precision appropriately.
 
 ### Improvements
 
