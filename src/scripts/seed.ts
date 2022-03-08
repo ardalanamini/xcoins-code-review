@@ -1,10 +1,10 @@
-import { DBURL } from "#src/config.js";
+import { DATABASE_URI } from "#src/config.js";
 import { Favorite, Profile, Simulator } from "#src/models/index.js";
 import mongoose from "mongoose";
 
 (async () => {
 
-  mongoose.connect(DBURL);
+  mongoose.connect(DATABASE_URI);
 
   const profile = new Profile({
     name: "String",

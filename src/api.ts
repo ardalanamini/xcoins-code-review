@@ -1,4 +1,4 @@
-import { CORS_ORIGINS, DBURL, PORT } from "#src/config.js";
+import { CORS_ORIGINS, DATABASE_URI, SERVER_PORT } from "#src/config.js";
 import routes from "#src/routes/index.js";
 import bodyParser from "body-parser";
 import { errors } from "celebrate";
@@ -7,9 +7,9 @@ import express from "express";
 import mongoose from "mongoose";
 
 mongoose
-  .connect(`${DBURL}`)
+  .connect(DATABASE_URI)
   .then(() => {
-    console.log(`Connected to DB ${DBURL}`);
+    console.log("✅ Database connection established!");
   });
 
 const app = express();
@@ -20,6 +20,6 @@ app.use(routes);
 
 app.use(errors());
 
-app.listen(PORT, () =>
-  console.log(`✅  Ready on port http://localhost:${PORT}`),
+app.listen(SERVER_PORT, () =>
+  console.log(`✅ Listening to requests on port ${SERVER_PORT}`),
 );

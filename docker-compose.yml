@@ -9,8 +9,8 @@ services:
     restart: unless-stopped
     env_file: .env
     environment:
-      - PORT=3000
-      - DBURL=mongodb://database:27017/api
+      - SERVER_PORT=3000
+      - DATABASE_URI=mongodb://database:27017/api
     ports:
       - "3000:3000"
     depends_on:
