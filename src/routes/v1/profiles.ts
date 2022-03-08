@@ -1,15 +1,15 @@
 import { Profile } from "#src/models/index.js";
-import express from "express";
+import { Router } from "express";
 
-const router = express.Router();
+const router = Router();
 
-router.get("/api/profile", async (req, res) => {
+router.get("/profile", async (req, res) => {
   const profile = await Profile.find().lean();
   console.log(profile);
   res.json({ profile });
 });
 
-router.post("/api/profile", async (req, res) => {
+router.post("/profile", async (req, res) => {
   const { email, name, nickname } = req.body;
 
   let profile = await Profile.findOne({

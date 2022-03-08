@@ -1,13 +1,9 @@
-import express from "express";
-import favorites from "./favorites.js";
-import profiles from "./profiles.js";
-import simulators from "./simulators.js";
+import { Router } from "express";
+import v1 from "./v1/index.js";
 
-const router = express.Router();
+const router = Router();
 
 router
-  .use(favorites)
-  .use(profiles)
-  .use(simulators);
+  .use(v1);
 
 export default router;

@@ -1,15 +1,15 @@
 import { Simulator } from "#src/models/index.js";
-import express from "express";
+import { Router } from "express";
 
-const router = express.Router();
+const router = Router();
 
-router.get("/api/simulator", async (req, res) => {
+router.get("/simulator", async (req, res) => {
   const simulator = await Simulator.find().lean();
   console.log(simulator);
   res.json({ simulator });
 });
 
-router.get("/api/simulator/:profile_id", async (req, res) => {
+router.get("/simulator/:profile_id", async (req, res) => {
   console.log("========== ");
   let query = {};
   const { profile_id } = req.params;
@@ -19,7 +19,7 @@ router.get("/api/simulator/:profile_id", async (req, res) => {
   res.json(data);
 });
 
-router.post("/api/simulator/:profile_id", async (req, res) => {
+router.post("/simulator/:profile_id", async (req, res) => {
   const { profile_id } = req.params;
   const newData = {
     ...req.body,

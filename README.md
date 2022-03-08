@@ -157,6 +157,8 @@ This section includes the issues, changes & improvements I've made, with the tho
     > For mathematical calculations in the project we can use [bignumber.js](https://www.npmjs.com/package/bignumber.js),
     > to handle the precision appropriately.
   - Unused/Redundant usage of `express()` & `cors()` in the `src/routes/simulator.router.ts` file.
+  - Redundant `/api` prefix used in the routes. I instead used a more useful `/v{major}` prefix. (`/v1`)
+    > Using `/v{major}` route prefix allows to possibility of deploying breaking changes without loosing backward compatibility.
 
 ### Improvements
 
