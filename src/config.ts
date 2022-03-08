@@ -15,6 +15,8 @@ export const NODE_ENV = process.env.NODE_ENV = check("NODE_ENV", ENV.DEVELOPMENT
 
 export const SERVER_PORT = parseInt(check("SERVER_PORT", "3000"), 10);
 
+export const CORS_ORIGINS = check("CORS_ORIGINS", "http://localhost:3000").split(",");
+
 export const DATABASE_URI = check("DATABASE_URI");
 
-export const CORS_ORIGINS = check("CORS_ORIGINS", "http://localhost:3000").split(",");
+export const SENTRY_DSN = process.env.SENTRY_DSN;

@@ -12,6 +12,7 @@ XCoins code review repository.
     - [Common](#common-config)
     - [Server](#server-config)
     - [Database](#database-config)
+    - [Sentry](#sentry-config)
   - [Start](#start)
   - [Docker](#docker)
 - [Directory Layout](#directory-layout)
@@ -87,6 +88,12 @@ cp .env.example .env
 | Name           |  Type  | Default |          Description          |
 |----------------|:------:|:-------:|:-----------------------------:|
 | `DATABASE_URI` | string |    -    | MongoDB connection string uri |
+
+#### Sentry Config
+
+| Name         |  Type  | Default |       Description        |
+|--------------|:------:|:-------:|:------------------------:|
+| `SENTRY_DSN` | string |    -    | Sentry project DSN value |
 
 ### Start
 
@@ -239,6 +246,7 @@ This section includes the issues, changes & improvements I've made, with the tho
     > `express` doesn't catch async errors properly, so I added this utility to wrap the controllers before passing them
     > to the `Router` instance.
   - Added pagination to the endpoints that were listing records.
+  - Added `Sentry` to track issues in the production environment.
 
 <!-- Footnotes -->
 

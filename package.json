@@ -28,6 +28,8 @@
     "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
+    "@sentry/node": "6.18.2",
+    "@sentry/tracing": "6.18.2",
     "body-parser": "1.19.2",
     "celebrate": "15.0.1",
     "cors": "2.8.5",
