@@ -176,10 +176,13 @@ This section includes the issues, changes & improvements I've made, with the tho
     > meaning no installed dependency can use these path aliases (which could cause security issues as well)
   - Added the `src/models/index.ts` file to provide easier & cleaner access to all database models
     throughout the entire project.
+    > I didn't use `export default` for the models, because in the `index.ts` I wanted to be able to easily use `export * from "some-model"`.
   - Added the `src/constants` directory to move all constant values there instead of being scattered all over the project.
     > This ensures that the project is using the same consistent values everywhere.
     > `MODEL` & `COLLECTION` constants are also added, due to the fact that they can be useful in scenarios such as `$lookup` aggregation stages.
     > Also In case of need to change the said values, it just needs to be updated in one places only.
+  - Added the `src/routes/index.ts` file to provide cleaner api endpoint management.
+    > I exported the routes as `default` in this case, due to only having one job, which is exporting the express `Router`.
 
 <!-- Footnotes -->
 

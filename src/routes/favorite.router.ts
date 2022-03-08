@@ -1,7 +1,7 @@
 import { Favorite } from "#src/models/index.js";
 import express from "express";
 
-export const router = express.Router();
+const router = express.Router();
 
 router.get("/api/favorite", async (req, res) => {
   const favorite = await Favorite.find().lean();
@@ -18,3 +18,5 @@ router.get("/api/favorite/:profile_id", async (req, res) => {
   const data = await Favorite.find(query);
   res.json(data);
 });
+
+export default router;

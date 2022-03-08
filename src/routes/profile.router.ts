@@ -1,7 +1,7 @@
 import { Profile } from "#src/models/index.js";
 import express from "express";
 
-export const router = express.Router();
+const router = express.Router();
 
 router.get("/api/profile", async (req, res) => {
   const profile = await Profile.find().lean();
@@ -22,3 +22,5 @@ router.post("/api/profile", async (req, res) => {
 
   res.json(profile);
 });
+
+export default router;

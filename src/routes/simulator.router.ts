@@ -5,7 +5,7 @@ import express from "express";
 const app = express();
 app.use(cors());
 
-export const router = express.Router();
+const router = express.Router();
 
 router.get("/api/simulator", async (req, res) => {
   const simulator = await Simulator.find().lean();
@@ -33,3 +33,5 @@ router.post("/api/simulator/:profile_id", async (req, res) => {
   const simulator = await Simulator.create(newData);
   res.json(simulator);
 });
+
+export default router;
