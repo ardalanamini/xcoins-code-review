@@ -186,14 +186,14 @@ npm run docs:api
 ├── docs             # Static documents
 │   ├── api          # API documents
 │   └── code         # Code documents
+├── scripts          # Project scripts
 └── src              # Source files
     ├── constants    # Constant values
     ├── controllers  # API controllers
     ├── lib          # 3rd party libraries (initialized/extended etc)
     ├── models       # Database models
     ├── routes       # API endpoints
-    ├── scripts      # Project scripts
-    └── utils        # Project utilities
+    └── utils        # Utilities
 ```
 
 > Note: `__mocks__` directories are used by `Jest` to mock certain modules.
@@ -214,6 +214,7 @@ This section includes the issues, changes & improvements I've made, with the tho
   - No usage document is provided in the `README.md` file.
   - No comments or documents are provided for the project. (e.g. `jsdoc`, `tsdoc`, `typedoc`)
   - No API documents are provided for the project. (e.g. `swagger`)
+- No API authentication implemented.
 - Missing `.gitignore` file.
   > Could cause unintended files to be pushed to the `git` server accidentally.
 - Issues related to `package.json`:
