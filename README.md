@@ -134,9 +134,6 @@ This section includes the issues, changes & improvements I've made, with the tho
   - Outdated dependencies.
     > Related dependencies: `body-parser`, `dotenv`, `express`, `mongoose`, `@types/cors`, `@types/express`,
     > `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser`, `eslint`, `ts-node-dev`, `typescript`
-    >
-    > Note: As of this moment, the latest `typescript` version
-    > officially supported by the `@typescript-eslint/typescript-estree` is `4.5.5`
   - Not using exact versions for dependencies.
     > This issue has somewhat similar effects as the `package-lock.json` issue,
     > as `^version` will allow any semver compatible version to be installed.
