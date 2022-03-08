@@ -17,6 +17,7 @@ XCoins code review repository.
   - [Docker](#docker)
   - [Documents](#documents)
     - [Code](#code-documents)
+    - [API](#api-documents)
 - [Directory Layout](#directory-layout)
 - [Versioning](#versioning)
 - [Code Review](#code-review)
@@ -136,6 +137,20 @@ npm run docs:code
 ```
 
 After running this command, open `docs/code/index.html` in your preferred browser.
+
+#### API Documents
+
+Generate the API documents to be served statically. (Using _Swagger_[^SWAGGER_FOOTNOTE])
+
+```shell
+npm run docs:swagger
+```
+
+Generate & serve the API documents. (The documents' server address will be printed in the terminal)
+
+```shell
+npm run docs:api
+```
 
 ## Directory Layout
 
@@ -278,5 +293,7 @@ This section includes the issues, changes & improvements I've made, with the tho
 [^DOCKER_FOOTNOTE]: [Docker](https://www.docker.com)
 
 [^TYPEDOC_FOOTNOTE]: [TypeDoc](https://typedoc.org)
+
+[^SWAGGER_FOOTNOTE]: [Swagger](https://swagger.io)
 
 [^SEMVER_FOOTNOTE]: [SemVer](http://semver.org)

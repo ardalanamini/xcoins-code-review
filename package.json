@@ -1,6 +1,7 @@
 {
   "name": "api",
   "version": "1.0.0",
+  "description": "XCoins review API",
   "private": true,
   "license": "MIT",
   "author": "Ardalan Amini <ardalanamini22@gmail.com> (https://ardalanamini.com)",
@@ -26,7 +27,9 @@
     "build:watch": "npm run build -- --watch",
     "lint": "eslint src",
     "lint:fix": "npm run lint -- --fix",
-    "docs:code": "typedoc"
+    "docs:code": "typedoc",
+    "docs:swagger": "swagger-jsdoc -d ./swagger.config.js -o docs/api/swagger.yaml './src/models/**/*.ts' './src/controllers/**/*.ts'",
+    "docs:api": "npm run docs:swagger && redoc-cli serve ./docs/api/swagger.yaml"
   },
   "dependencies": {
     "@sentry/node": "6.18.2",
@@ -44,6 +47,8 @@
     "@typescript-eslint/eslint-plugin": "5.14.0",
     "@typescript-eslint/parser": "5.14.0",
     "eslint": "8.10.0",
+    "redoc-cli": "0.13.8",
+    "swagger-jsdoc": "6.1.0",
     "ts-node": "10.7.0",
     "ts-node-dev": "1.1.8",
     "typedoc": "0.22.13",

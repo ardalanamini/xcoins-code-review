@@ -120,6 +120,7 @@ dist
 .build/
 
 # Documents
+docs/api/swagger.yaml
 docs/code/
 
 # IDE
