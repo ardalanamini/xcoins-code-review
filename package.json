@@ -17,11 +17,11 @@
   "imports": {
     "#src/*": "./.build/*"
   },
-  "main": ".build/api.js",
+  "main": ".build/index.js",
   "scripts": {
-    "dev": "ts-node-dev src/api.ts",
+    "dev": "ts-node-dev src/index.ts",
     "seed": "ts-node-dev src/scripts/seed.ts",
-    "start": "node .build/api.js",
+    "start": "node .build/index.js",
     "build": "tsc",
     "build:watch": "npm run build -- --watch",
     "lint": "eslint src",
