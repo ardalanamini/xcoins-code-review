@@ -156,6 +156,7 @@ This section includes the issues, changes & improvements I've made, with the tho
     > I used `Decimal128` as suggested in [this](https://docs.mongodb.com/manual/tutorial/model-monetary-data) official `MongoDB` document.
     > For mathematical calculations in the project we can use [bignumber.js](https://www.npmjs.com/package/bignumber.js),
     > to handle the precision appropriately.
+  - Unused/Redundant usage of `express()` & `cors()` in the `src/routes/simulator.router.ts` file.
 
 ### Improvements
 
@@ -174,6 +175,7 @@ This section includes the issues, changes & improvements I've made, with the tho
     > for this purpose, I used `imports` property in `package.json` to avoid using unnecessary third-party application,
     > which improves both the startup time and security, due to the fact that `Node.js` will only apply these path aliases to the current package,
     > meaning no installed dependency can use these path aliases (which could cause security issues as well)
+- Improvements in the `src` directory:
   - Added the `src/models/index.ts` file to provide easier & cleaner access to all database models
     throughout the entire project.
     > I didn't use `export default` for the models, because in the `index.ts` I wanted to be able to easily use `export * from "some-model"`.
