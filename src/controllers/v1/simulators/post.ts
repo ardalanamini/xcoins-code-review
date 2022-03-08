@@ -3,11 +3,11 @@ import { RequestHandler } from "express";
 
 export const postSimulatorV1: RequestHandler = async (req, res) => {
   const { profile_id } = req.params;
-  const newData = {
+
+  const simulator = await Simulator.create({
     ...req.body,
     profile_id,
-  };
-  console.log(newData);
-  const simulator = await Simulator.create(newData);
-  res.json(simulator);
+  });
+
+  res.json({ simulator });
 };

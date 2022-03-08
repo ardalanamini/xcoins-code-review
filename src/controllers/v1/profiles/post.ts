@@ -6,11 +6,11 @@ export const postProfileV1: RequestHandler = async (req, res) => {
 
   let profile = await Profile.findOne({
     $or: [{ email }, { nickname }],
-  }).exec();
+  });
 
   if (!profile) {
     profile = await Profile.create({ name, email, nickname });
   }
 
-  res.json(profile);
+  res.json({ profile });
 };

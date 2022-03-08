@@ -161,6 +161,9 @@ This section includes the issues, changes & improvements I've made, with the tho
   - Unused/Redundant usage of `express()` & `cors()` in the `src/routes/simulator.router.ts` file.
   - Redundant `/api` prefix used in the routes. I instead used a more useful `/v{major}` prefix. (`/v1`)
     > Using `/v{major}` route prefix allows to possibility of deploying breaking changes without loosing backward compatibility.
+  - Unuseful `console.log` usage. for logging purposes, it's better use a proper logging library or service such as `Sentry`.
+  - Inconsistent API response format.
+    > Some controllers directly send the database record(s) as the response, some send them wrapped inside an object.
 
 ### Improvements
 
