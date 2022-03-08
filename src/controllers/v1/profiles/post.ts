@@ -1,5 +1,6 @@
+import { Joi } from "#src/lib/index.js";
 import { Profile } from "#src/models/index.js";
-import { celebrate, Joi, Segments } from "celebrate";
+import { celebrate, Segments } from "celebrate";
 import { RequestHandler } from "express";
 
 export const postProfileV1: RequestHandler[] = [

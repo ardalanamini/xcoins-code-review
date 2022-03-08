@@ -1,5 +1,6 @@
+import { Joi } from "#src/lib/index.js";
 import { Favorite, FavoriteI } from "#src/models/index.js";
-import { celebrate, Joi, Segments } from "celebrate";
+import { celebrate, Segments } from "celebrate";
 import { RequestHandler } from "express";
 import { FilterQuery } from "mongoose";
 
@@ -7,7 +8,7 @@ export const listFavoritesV1: RequestHandler[] = [
   celebrate({
     [Segments.PARAMS]: Joi.object()
       .keys({
-        profile_id: Joi.string().required(), // TODO: ObjectID conversion.
+        profile_id: Joi.string().objectId().required(),
       })
       .required(),
   }),

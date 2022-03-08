@@ -93,6 +93,7 @@ docker-compose down
 └── src              # Source files
     ├── constants    # Constant values
     ├── controllers  # API controllers
+    ├── lib          # 3rd party libraries (initialized/extended etc)
     ├── models       # Database models
     ├── routes       # API endpoints
     ├── scripts      # Project scripts
