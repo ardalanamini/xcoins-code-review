@@ -95,7 +95,8 @@ docker-compose down
     ├── controllers  # API controllers
     ├── models       # Database models
     ├── routes       # API endpoints
-    └── scripts      # Project scripts
+    ├── scripts      # Project scripts
+    └── utils        # Project utilities
 ```
 
 ## Versioning
@@ -190,11 +191,14 @@ This section includes the issues, changes & improvements I've made, with the tho
     > I exported the routes as `default` in this case, due to only having one job, which is exporting the express `Router`.
   - Renamed the router filenames. The `.router` part of the name was redundant,
     since they're already under the `routes` directory.
-  - I moved the controllers to the `controllers` directory & each controller to be in a separate file.
+  - Moved the controllers to the `controllers` directory & each controller to be in a separate file.
     > This makes code cleaner and easier to maintain. not the directory `routes` only manages the routing &
     > the `controllers` directory manages route behaviors.
     > By putting controllers in separate files, it will become easier to detect which dependencies are used in which controller
     > and the number of controllers won't affect the readability of the code, thus easier to improve, debug & maintain.
+  - Added the `wrapController` utility.
+    > `express` doesn't catch async errors properly, so I added this utility to wrap the controllers before passing them
+    > to the `Router` instance.
 
 <!-- Footnotes -->
 
