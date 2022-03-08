@@ -23,6 +23,7 @@ export const listProfilesV1 = [
 
     if (total_count > skip) {
       profiles = await Profile.find()
+        .sort("-created_at")
         .skip(skip)
         .limit(limit)
         .lean();

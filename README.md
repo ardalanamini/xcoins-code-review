@@ -7,6 +7,7 @@ XCoins code review repository.
 - [Prerequisites](#prerequisites)
 - [Usage](#usage)
   - [Build](#build)
+  - [Test](#test)
   - [Code Style](#code-style)
   - [Config](#config)
     - [Common](#common-config)
@@ -49,6 +50,26 @@ Watch for changes and rebuild automatically.
 
 ```shell
 npm run build:watch
+```
+
+### Test
+
+Test the project. (Using _Jest_[^JEST_FOOTNOTE])
+
+```shell
+npm test
+```
+
+Test with code coverage report.
+
+```shell
+npm run test:coverage
+```
+
+Test in ci.
+
+```shell
+npm run test:ci
 ```
 
 ### Code Style
@@ -157,6 +178,11 @@ npm run docs:api
 ```
 .
 ├── .build           # Project (TypeScript) build directory
+├── __tests__        # Test files
+│   ├── controllers  # API controller integration tests
+│   ├── jest         # Test utilities
+│   ├── lib          # Library unit tests
+│   └── utils        # Utility unit tests
 ├── docs             # Static documents
 │   ├── api          # API documents
 │   └── code         # Code documents
@@ -170,6 +196,8 @@ npm run docs:api
     └── utils        # Project utilities
 ```
 
+> Note: `__mocks__` directories are used by `Jest` to mock certain modules.
+
 ## Versioning
 
 This project uses _SemVer_[^SEMVER_FOOTNOTE] for versioning. For the versions & changelogs available, see the releases
@@ -181,6 +209,7 @@ This section includes the issues, changes & improvements I've made, with the tho
 
 ### Issues
 
+- No unit/integration tests.
 - Missing documents.
   - No usage document is provided in the `README.md` file.
   - No comments or documents are provided for the project. (e.g. `jsdoc`, `tsdoc`, `typedoc`)
@@ -288,6 +317,8 @@ This section includes the issues, changes & improvements I've made, with the tho
 [^NODE_JS_FOOTNOTE]: [Node.js](https://nodejs.org/en)
 
 [^TYPESCRIPT_FOOTNOTE]: [TypeScript](https://www.typescriptlang.org)
+
+[^JEST_FOOTNOTE]: [Jest](https://jestjs.io)
 
 [^ESLINT_FOOTNOTE]: [ESLint](https://eslint.org)
 
