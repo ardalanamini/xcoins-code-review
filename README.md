@@ -183,6 +183,8 @@ This section includes the issues, changes & improvements I've made, with the tho
     > Also In case of need to change the said values, it just needs to be updated in one places only.
   - Added the `src/routes/index.ts` file to provide cleaner api endpoint management.
     > I exported the routes as `default` in this case, due to only having one job, which is exporting the express `Router`.
+  - Renamed the router filenames. The `.router` part of the name was redundant,
+    since they're already under the `routes` directory.
 
 <!-- Footnotes -->
 

@@ -1,7 +1,7 @@
 import express from "express";
-import favorites from "./favorite.router.js";
-import profiles from "./profile.router.js";
-import simulators from "./simulator.router.js";
+import favorites from "./favorites.js";
+import profiles from "./profiles.js";
+import simulators from "./simulators.js";
 
 const router = express.Router();
 
