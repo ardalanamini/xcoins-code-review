@@ -164,6 +164,7 @@ This section includes the issues, changes & improvements I've made, with the tho
   - Unuseful `console.log` usage. for logging purposes, it's better use a proper logging library or service such as `Sentry`.
   - Inconsistent API response format.
     > Some controllers directly send the database record(s) as the response, some send them wrapped inside an object.
+  - No request validation was in place for any of the controllers.
 
 ### Improvements
 

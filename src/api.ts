@@ -1,6 +1,7 @@
 import { CORS_ORIGINS, DBURL, PORT } from "#src/config.js";
 import routes from "#src/routes/index.js";
 import bodyParser from "body-parser";
+import { errors } from "celebrate";
 import cors from "cors";
 import express from "express";
 import mongoose from "mongoose";
@@ -16,6 +17,8 @@ app.use(cors({ origin: CORS_ORIGINS }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(routes);
+
+app.use(errors());
 
 app.listen(PORT, () =>
   console.log(`✅  Ready on port http://localhost:${PORT}`),

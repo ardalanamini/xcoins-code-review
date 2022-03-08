@@ -1,14 +1,14 @@
 import { listSimulatorsV1, postSimulatorV1 } from "#src/controllers/index.js";
-import { wrapController } from "#src/utils/index.js";
+import { wrapRequestHandlers } from "#src/utils/index.js";
 import { Router } from "express";
 
 const router = Router();
 
 router.route("/simulator")
-  .get(wrapController(listSimulatorsV1));
+  .get(...wrapRequestHandlers(listSimulatorsV1));
 
 router.route("/simulator/:profile_id")
-  .get(wrapController(listSimulatorsV1))
-  .post(wrapController(postSimulatorV1));
+  .get(...wrapRequestHandlers(listSimulatorsV1))
+  .post(...wrapRequestHandlers(postSimulatorV1));
 
 export default router;

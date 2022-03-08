@@ -14,6 +14,7 @@ const schema = new Schema<ProfileSchemaI>(
     },
     nickname: {
       type: String,
+      required: true,
     },
     capital: {
       type: Schema.Types.Decimal128,
@@ -40,7 +41,7 @@ export const Profile = model<ProfileSchemaI, ProfileModelI>(MODEL.PROFILE, schem
 export interface ProfileI {
   email: `${string}@${string}.${string}`;
   name: string;
-  nickname?: string;
+  nickname: string;
   capital: Types.Decimal128;
   divisa?: string;
   prefered_cryptocurrency?: string;
