@@ -92,9 +92,12 @@ docker-compose down
 ├── .build           # Project (TypeScript) build directory
 └── src              # Source files
     ├── constants    # Constant values
+    ├── controllers  # API controllers
+    ├── lib          # 3rd party libraries (initialized/extended etc)
     ├── models       # Database models
     ├── routes       # API endpoints
-    └── scripts      # Project scripts
+    ├── scripts      # Project scripts
+    └── utils        # Project utilities
 ```
 
 ## Versioning
@@ -156,6 +159,13 @@ This section includes the issues, changes & improvements I've made, with the tho
     > I used `Decimal128` as suggested in [this](https://docs.mongodb.com/manual/tutorial/model-monetary-data) official `MongoDB` document.
     > For mathematical calculations in the project we can use [bignumber.js](https://www.npmjs.com/package/bignumber.js),
     > to handle the precision appropriately.
+  - Unused/Redundant usage of `express()` & `cors()` in the `src/routes/simulator.router.ts` file.
+  - Redundant `/api` prefix used in the routes. I instead used a more useful `/v{major}` prefix. (`/v1`)
+    > Using `/v{major}` route prefix allows to possibility of deploying breaking changes without loosing backward compatibility.
+  - Unuseful `console.log` usage. for logging purposes, it's better use a proper logging library or service such as `Sentry`.
+  - Inconsistent API response format.
+    > Some controllers directly send the database record(s) as the response, some send them wrapped inside an object.
+  - No request validation was in place for any of the controllers.
 
 ### Improvements
 
@@ -174,12 +184,26 @@ This section includes the issues, changes & improvements I've made, with the tho
     > for this purpose, I used `imports` property in `package.json` to avoid using unnecessary third-party application,
     > which improves both the startup time and security, due to the fact that `Node.js` will only apply these path aliases to the current package,
     > meaning no installed dependency can use these path aliases (which could cause security issues as well)
+- Improvements in the `src` directory:
   - Added the `src/models/index.ts` file to provide easier & cleaner access to all database models
     throughout the entire project.
+    > I didn't use `export default` for the models, because in the `index.ts` I wanted to be able to easily use `export * from "some-model"`.
   - Added the `src/constants` directory to move all constant values there instead of being scattered all over the project.
     > This ensures that the project is using the same consistent values everywhere.
     > `MODEL` & `COLLECTION` constants are also added, due to the fact that they can be useful in scenarios such as `$lookup` aggregation stages.
     > Also In case of need to change the said values, it just needs to be updated in one places only.
+  - Added the `src/routes/index.ts` file to provide cleaner api endpoint management.
+    > I exported the routes as `default` in this case, due to only having one job, which is exporting the express `Router`.
+  - Renamed the router filenames. The `.router` part of the name was redundant,
+    since they're already under the `routes` directory.
+  - Moved the controllers to the `controllers` directory & each controller to be in a separate file.
+    > This makes code cleaner and easier to maintain. not the directory `routes` only manages the routing &
+    > the `controllers` directory manages route behaviors.
+    > By putting controllers in separate files, it will become easier to detect which dependencies are used in which controller
+    > and the number of controllers won't affect the readability of the code, thus easier to improve, debug & maintain.
+  - Added the `wrapController` utility.
+    > `express` doesn't catch async errors properly, so I added this utility to wrap the controllers before passing them
+    > to the `Router` instance.
 
 <!-- Footnotes -->
 
