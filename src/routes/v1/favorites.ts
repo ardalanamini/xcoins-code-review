@@ -1,22 +1,12 @@
-import { Favorite } from "#src/models/index.js";
+import { getFavoriteV1, listFavoritesV1 } from "#src/controllers/index.js";
 import { Router } from "express";
 
 const router = Router();
 
-router.get("/favorite", async (req, res) => {
-  const favorite = await Favorite.find().lean();
-  console.log(favorite);
-  res.json({ favorite });
-});
+router.route("/favorite")
+  .get(listFavoritesV1);
 
-router.get("/favorite/:profile_id", async (req, res) => {
-  console.log(req.params);
-  let query = {};
-  const { profile_id } = req.params;
-  query = { profile_id };
-  console.log(query);
-  const data = await Favorite.find(query);
-  res.json(data);
-});
+router.route("/favorite/:profile_id")
+  .get(getFavoriteV1);
 
 export default router;
