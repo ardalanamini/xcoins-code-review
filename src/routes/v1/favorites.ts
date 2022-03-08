@@ -4,10 +4,10 @@ import { Router } from "express";
 
 const router = Router();
 
-router.route("/favorite")
+router.route("/favorites")
   .get(...wrapRequestHandlers(listFavoritesV1));
 
-router.route("/favorite/:profile_id")
+router.route("/favorites/:profile_id")
   .get(...wrapRequestHandlers(listFavoritesV1));
 
 export default router;

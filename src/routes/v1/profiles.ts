@@ -4,7 +4,7 @@ import { Router } from "express";
 
 const router = Router();
 
-router.route("/profile")
+router.route("/profiles")
   .get(...wrapRequestHandlers(listProfilesV1))
   .post(...wrapRequestHandlers(postProfileV1));
 

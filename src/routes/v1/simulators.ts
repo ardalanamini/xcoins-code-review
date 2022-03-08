@@ -4,10 +4,10 @@ import { Router } from "express";
 
 const router = Router();
 
-router.route("/simulator")
+router.route("/simulators")
   .get(...wrapRequestHandlers(listSimulatorsV1));
 
-router.route("/simulator/:profile_id")
+router.route("/simulators/:profile_id")
   .get(...wrapRequestHandlers(listSimulatorsV1))
   .post(...wrapRequestHandlers(postSimulatorV1));
 
