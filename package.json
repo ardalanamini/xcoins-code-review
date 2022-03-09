@@ -32,7 +32,7 @@
     "docs:api": "npm run docs:swagger && redoc-cli serve ./docs/api/swagger.yaml",
     "test": "node --expose-gc node_modules/jest/bin/jest",
     "test:coverage": "npm test -- --coverage",
-    "test:ci": "npm run test:coverage -- ---ci -runInBand --verbose --logHeapUsage"
+    "test:ci": "npm run test:coverage -- --ci --runInBand --verbose --logHeapUsage"
   },
   "dependencies": {
     "@sentry/node": "6.18.2",
