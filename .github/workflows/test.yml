@@ -1,0 +1,66 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_call:
+
+jobs:
+  test:
+    name: Test
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 10
+
+    env:
+      REF: ${{ github.ref_name }}
+      NODE_VERSION: 16.14.0
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Cache
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: node-modules-${{ github.ref_name }}-${{ env.NODE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            node-modules-${{ github.ref_name }}-${{ env.NODE_VERSION }}
+            node-modules-main-${{ env.NODE_VERSION }}
+            node-modules-${{ github.ref_name }}-
+            node-modules-main-
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm i --no-fund
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Check code styles
+        run: npm run lint
+
+      - name: Generate code documents
+        run: npm run docs:code
+
+      - name: Generate Swagger documents
+        run: npm run docs:swagger
+
+      - name: Test the project
+        run: npm run test:ci
+
+      - name: Upload coverage to CodeCov
+        uses: codecov/codecov-action@v2
+        with:
+          env_vars: REF,NODE_VERSION
+          fail_ci_if_error: true

@@ -313,6 +313,7 @@ This section includes the issues, changes & improvements I've made, with the tho
   - Added pagination to the endpoints that were listing records.
   - Added `Sentry` to track issues in the production environment.
   - Added graceful shutdown.
+  - Configured CI/CD using GitHub Actions.
 
 <!-- Footnotes -->
 
