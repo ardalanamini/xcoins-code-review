@@ -1,5 +1,8 @@
 # XCoins Code Review
 
+[![Test](https://github.com/ardalanamini/xcoins-code-review/actions/workflows/test.yml/badge.svg)](https://github.com/ardalanamini/xcoins-code-review/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/ardalanamini/xcoins-code-review/branch/main/graph/badge.svg?token=J3ZMFI2kry)](https://codecov.io/gh/ardalanamini/xcoins-code-review)
+
 XCoins code review repository.
 
 ## Table of Contents
